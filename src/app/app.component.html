@@ -1,2 +1,6 @@
-<button mat-icon-button (click)="openModalCreate()">Crear</button>
-<ejs-schedule width='100%' height='550px' [selectedDate]='selectedDate' [eventSettings]='eventSettings'></ejs-schedule>
+<button (click)="openModalAdd()">Crear</button>
+<ejs-schedule #scheduleObj height='550px' [selectedDate]="selectedDate" [allowResizing]="allowResizing"
+    [allowDragAndDrop]="allowDragDrop" [eventSettings]="eventSettings">
+</ejs-schedule>
+<ejs-contextmenu #menuObj cssClass='schedule-context-menu' target='.e-schedule' [items]='menuItems'
+    (beforeOpen)='onContextMenuBeforeOpen($event)' (select)='onMenuItemSelect($event)'></ejs-contextmenu>

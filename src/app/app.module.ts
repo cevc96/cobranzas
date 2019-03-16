@@ -1,30 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatDialogModule, MatIconModule, MatButtonModule} from '@angular/material';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
+import { ContextMenuModule } from '@syncfusion/ej2-angular-navigations';
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { AppComponent } from './app.component';
+import { MatDialogModule, MatIconModule, MatButtonModule } from '@angular/material';
+
 import { CsCobranzasModalCreateEvent } from './dialogs/cs-cobranzas-modal-create-event/cs-cobranzas-modal-create-event.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
+/**
+ * Module
+ */
 @NgModule({
-  declarations: [
-    AppComponent,
-    CsCobranzasModalCreateEvent
-  ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     ScheduleModule,
+    ButtonModule,
+    ContextMenuModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatButtonModule
+    NoopAnimationsModule
   ],
-  providers: [],
+  declarations: [AppComponent, CsCobranzasModalCreateEvent],
   bootstrap: [AppComponent],
+  providers: [DayService,
+    WeekService,
+    WorkWeekService,
+    MonthService,
+    AgendaService, 
+    MonthAgendaService],
   entryComponents: [
     CsCobranzasModalCreateEvent
   ]
